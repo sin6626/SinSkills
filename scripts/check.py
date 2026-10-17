@@ -7,7 +7,7 @@ from urllib.parse import unquote, urlsplit
 root = Path(__file__).resolve().parents[1]
 expected = {
     'skills': {'crop-the-image', 'gsap-core', 'gsap-timeline', 'gsap-scrolltrigger', 'gsap-react', 'gsap-frameworks'},
-    'optional': {'prototype', 'uni-app', 'course-report-diagrams', 'writing-great-skills', 'git-story-film', 'cc-clean'},
+    'optional': {'prototype', 'uni-app', 'course-report-diagrams', 'writing-great-skills', 'git-story-film', 'cc-clean', 'grilling'},
 }
 errors = []
 entries = []
@@ -29,7 +29,7 @@ for path in entries:
     if not re.search(r'^description:\s*\S', header, re.M):
         errors.append(f'{path.relative_to(root)}: missing description')
 
-documents = [root / 'README.md', root / 'SOURCES.md', *(root / 'plugin').rglob('*.md'), *(root / 'skills').rglob('*.md'), *(root / 'optional').rglob('*.md')]
+documents = [*root.glob('README*.md'), root / 'SOURCES.md', *(root / 'plugin').rglob('*.md'), *(root / 'skills').rglob('*.md'), *(root / 'optional').rglob('*.md')]
 for path in documents:
     text = path.read_text()
     if re.search(r'/Users/[^/\s]+/|/home/[^/\s]+/', text):

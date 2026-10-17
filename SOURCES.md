@@ -11,6 +11,7 @@
 | GSAP 插件、工具函数、性能资料及四套示例 | [greensock/gsap-skills](https://github.com/greensock/gsap-skills/tree/aed9cfd3277740755f6bfc1155c7aa645403b760) | 固定提交 `aed9cfd3277740755f6bfc1155c7aa645403b760`，没有跟随浮动分支自动更新。 |
 | `git-story-film` | 本机个人 Skill 的完整目录 | 包含原有引擎、脚本、参考资料和 Raven 示例。 |
 | `cc-clean` | 本机个人 Skill 的完整目录 | 正文标注 `v0.2.2`，包含只读检查工具和报告模板。 |
+| `grilling` | 本机 `grilling` 与 [mattpocock/skills 上游](https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336/skills/productivity/grilling) | 明确目标不清楚时的触发条件，保留本机版一次一个问题的方式；当前上游使用多问题轮次，因此不声称正文与该提交完全相同。MIT 许可证取自该固定提交。 |
 
 ## 插件安装清单的依据
 
@@ -26,9 +27,13 @@
 
 GSAP Skills 上游采用 MIT，五个 GSAP 目录均附带上游 `LICENSE`。这是文档和示例仓库的许可证，不替代 GSAP 运行库本身的使用条款。
 
+`optional/grilling/LICENSE` 保留 Matt Pocock 上游的 MIT 许可证。
+
 `git-story-film/engine/LICENSE.hand-drawn-canvas-animation` 随原目录保留。其他本机技能未发现统一的顶层许可证，因此本仓库没有为全部导入内容重新声明一个统一许可。再次分发时应核实各部分的授权。
 
 ## 本仓库修订
+
+- 新增可选 `grilling`，用于澄清目标和方案；默认 README 及插件清单改为英文，并提供中文版本入口。
 
 - 把 `gsap-plugins`、`gsap-utils`、`gsap-performance` 三份上游内容保存为参考资料，并将跨技能引用改为相对链接。
 - 补齐原生 JavaScript、React、Vue、Nuxt 示例。原有示例按对应 Skill 分类，不依赖上游仓库的外部 `examples/` 路径。
