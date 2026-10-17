@@ -14,7 +14,7 @@
 
 ## 插件安装清单的依据
 
-只记录安装方式，不导入插件源码、缓存或用户配置。核对日期为 2026-10-17。
+清单位于 [plugin/README.md](plugin/README.md)，每项包含平台安装方式及上游 GitHub Skills 地址。不导入插件源码、缓存或用户配置。核对日期为 2026-10-17。
 
 - [pstack 上游安装说明](https://github.com/michael-denyer/pstack-claude#install)及本机两平台插件 manifest。Claude Code 安装登记为 `0.9.84`，Codex 缓存为 `0.9.67`，两平台配置均启用。
 - [ponytail 上游安装说明](https://github.com/DietrichGebert/ponytail/blob/main/INSTALL.md)、[Claude Code manifest](https://github.com/DietrichGebert/ponytail/blob/main/.claude-plugin/plugin.json)和 [Codex manifest](https://github.com/DietrichGebert/ponytail/blob/main/.codex-plugin/plugin.json)。两平台均有原生插件；本机实际使用手工 Hooks 与配套 Skill，未发现可核实的本地版本号。

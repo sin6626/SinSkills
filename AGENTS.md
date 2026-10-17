@@ -1,6 +1,6 @@
 # SinSkills
 
-本仓库保存可迁移的个人 Skills 与平台插件安装清单。`skills/` 为默认集合，`optional/` 为按需安装集合，插件安装方法集中在 `README.md`。
+本仓库保存可迁移的个人 Skills 与平台插件安装清单。`skills/` 为默认集合，`optional/` 为按需安装集合，插件清单集中在 `plugin/README.md`，每个插件的安装方法和 GitHub Skills 地址分别记录在 `plugin/` 内。
 
 ## 维护约定
 
@@ -22,6 +22,6 @@
 
 已整理默认六项和可选六项。PPT 技能按用户要求不收录，pstack 作为独立插件记录。GSAP 补齐参考资料和四套上游示例，另有修复后的横向滚动示例。视频渲染副本限定一个浏览器，移除递归目录清理。本机已安装 Skills 保留原件。
 
-README 已补充 pstack、ponytail 的两平台原生插件安装方法、必装清单与本机状态快照。本机 pstack 已按插件启用，ponytail 仍为手工 Hooks 加配套 Skill；本轮未迁移安装或修改全局配置。
+`plugin/` 已整理 pstack、ponytail 的两平台原生插件安装方法、上游 Skills 替代地址、必装清单与本机状态快照，主 README 只保留入口。本机 pstack 已按插件启用，ponytail 仍为手工 Hooks 加配套 Skill；本轮未迁移安装或修改全局配置。
 
 运行 `python3 scripts/check.py` 检查目录与引用；`npm ci` 后运行 `npm test` 做隔离浏览器回归。Vue/Nuxt 组件编译及 Nuxt composable 类型检查已执行，未对全部框架项目做完整运行验收，也未执行视频渲染或真实账号清理。来源与修订见 `SOURCES.md`。
