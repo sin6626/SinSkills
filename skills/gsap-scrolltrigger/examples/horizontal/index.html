@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GSAP 横向滚动示例</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; }
+    header, footer { min-height: 100vh; display: grid; place-content: center; padding: 2rem; }
+    .horizontal-viewport { overflow: hidden; }
+    .horizontal-el { display: flex; width: max-content; }
+    .panel { flex: 0 0 100vw; width: 100vw; min-height: 100vh; display: grid; place-content: center; padding: 2rem; background: #e8f0eb; }
+    .panel:nth-child(2) { background: #e4eaf5; }
+    .panel:nth-child(3) { background: #f4e9dc; }
+    @media (prefers-reduced-motion: reduce) {
+      .horizontal-el { display: block; width: auto; }
+      .panel { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header><h1>向下滚动，依次查看三个面板</h1><p>回滚与窗口缩放会同步更新位置。</p></header>
+  <section class="horizontal-viewport" aria-label="横向滚动演示">
+    <div class="horizontal-el">
+      <article class="panel"><h2>面板一</h2></article>
+      <article class="panel nested-wrapper"><h2 class="nested-el">面板二</h2></article>
+      <article class="panel"><h2>面板三</h2></article>
+    </div>
+  </section>
+  <footer><p>演示结束。减少动画模式会改为普通纵向阅读。</p></footer>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

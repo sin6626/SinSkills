@@ -1,0 +1,4 @@
+interface:
+  display_name: "Course Report Diagrams"
+  short_description: "Create report-ready Mermaid and PlantUML academic diagrams"
+  default_prompt: "Use $course-report-diagrams to create course-design diagrams that follow my academic report style."

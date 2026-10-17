@@ -1,0 +1,4 @@
+interface:
+  display_name: "Crop the image"
+  short_description: "Pixel-perfect UI from design screenshots"
+  default_prompt: "Use $crop-the-image to implement this page from the provided design screenshot and sliced assets."
