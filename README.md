@@ -1,6 +1,8 @@
 # SinSkills
 
-保存个人精选 Skills，供更换电脑或 Agent 环境时使用。默认集合侧重 UI 还原和网页动画；专项技能按需安装。
+保存个人精选 Skills 和插件安装清单，供更换电脑或 Agent 环境时使用。默认 Skills 侧重 UI 还原和网页动画；专项技能按需安装。
+
+支持原生插件的平台先按下方清单安装插件，再复制本仓库的精选 Skills。插件内已有的 Skills 不再单独复制。
 
 ## 默认集合
 
@@ -30,7 +32,7 @@ PPT 技能按当前使用约定由环境提供，本仓库不收录。
 
 ## 在新环境使用
 
-1. 克隆本仓库，先选择默认集合或需要的可选项。
+1. 克隆本仓库，按[必装插件清单](#必装插件清单)完成目标平台的原生插件安装，再选择默认 Skills 或需要的可选项。
 2. 将每个 Skill 的完整目录复制到目标 Agent 的 Skills 目录。保留脚本、`references/`、`examples/`、`assets/` 和许可证。
 3. 安装 GSAP 时，保留五个 `gsap-*` 目录的同级关系。可选项只复制选中的目录，不要直接安装整个仓库。
 4. 目标位置已有同名目录时，先对比版本再决定如何处理。重新打开或刷新目标 Agent 后确认能发现这些技能。
@@ -47,9 +49,69 @@ PPT 技能按当前使用约定由环境提供，本仓库不收录。
 
 视频渲染前在准备好的影片项目根目录安装 `puppeteer-core`，将 `CHROME` 指向隔离的 Chromium 可执行文件。仓库副本限定一个浏览器，并保留中间目录供手动清理。
 
-## pstack 与架构技能
+## 必装插件清单
 
-pstack 单独作为可选插件安装，不复制它的全部 Skills。记录目标环境使用的来源和版本，按插件安装方式保留 Hook、Agent 和脚本。
+这是个人环境的默认配置，当前保留两项。每个平台分别安装并管理自己的插件，不共享插件缓存或账号配置。
+
+| 插件 | 用途 | Claude Code | Codex | 仓库保存方式 |
+|---|---|---|---|---|
+| [pstack](https://github.com/michael-denyer/pstack-claude) | 设计、排查、实现、审查和验证的工作流程，包含 Skills、Agent 配置与 Hooks。 | 原生插件 | 原生插件 | 只记录来源和安装方法。 |
+| [ponytail](https://github.com/DietrichGebert/ponytail) | 约束过度设计，优先复用、标准库和满足需求的最少代码；通过 Hooks 加载工作规则。 | 原生插件 | 原生插件 | 只记录来源和安装方法。 |
+
+Skill 是任务说明和资源，Hook 是在会话或提示等事件发生时运行的程序，插件负责将它们打包并适配平台。因此 ponytail 同时包含 Skill 和 Hooks，安装完整插件才能保留其自动加载与模式切换能力。只复制 `SKILL.md` 不能迁移这些能力。
+
+平台自带的文档、PDF、表格和演示工具按环境提供，不收录为个人 Skills，也不因本机装过就全部列为必装。以后新增插件时，记录用途、来源、支持平台和安装后的确认方法。
+
+### 在 Claude Code 安装
+
+在 Claude Code 会话中逐条发送以下命令，每条作为一次独立输入：
+
+```text
+/plugin marketplace add michael-denyer/pstack-claude
+/plugin install pstack@pstack-claude
+/plugin marketplace add DietrichGebert/ponytail
+/plugin install ponytail@ponytail
+```
+
+重新启动会话，在 `/plugin` 中确认两项已安装并启用。按目标模型配置 pstack，可运行 `/pstack:setup-pstack`。不要沿用其他平台的模型名称。
+
+### 在 Codex 安装
+
+在终端执行：
+
+```bash
+codex plugin marketplace add michael-denyer/pstack-claude
+codex plugin add pstack@pstack-claude
+codex plugin marketplace add DietrichGebert/ponytail
+codex plugin add ponytail@ponytail
+```
+
+运行 `codex`，在 `/hooks` 中检查并信任这些插件的 Hooks，再开始新会话。桌面端需要重启应用。安装或启用插件不会自动信任 Hooks，参见 [OpenAI 插件文档](https://developers.openai.com/plugins/build/plugins)。
+
+在插件列表中确认 pstack、ponytail 已启用，在 `/hooks` 中确认它们的事件定义已受信任。新会话应能加载 pstack 路由规则和 ponytail 模式规则。这只能确认规则加载，不能证明输出质量。安装命令来自 [pstack 安装说明](https://github.com/michael-denyer/pstack-claude#install)和 [ponytail 安装说明](https://github.com/DietrichGebert/ponytail/blob/main/INSTALL.md)。
+
+### 运行条件与迁移
+
+ponytail 的 Hooks 需要非交互环境也能找到 `node`。pstack 的具体工作流可能需要额外工具，按所调用流程配置。
+
+两者共同使用时，pstack 管工作流程，ponytail 约束实现规模。精简代码不能削减已明确要求的 UI 还原、动画效果、可访问性或验证。不要另外复制插件自带的同名 Skills，或在项目指令中粘贴整套规则。
+
+截至 2026-10-17，本机状态如下。这是安装记录核对结果，不是所有平台功能的运行验收，也不是新电脑必须锁定的版本：
+
+| 内容 | Claude Code | Codex |
+|---|---|---|
+| pstack | 插件登记为 `0.9.84`，用户配置已启用。 | 插件缓存为 `0.9.67`，用户配置已启用，路由 Hook 有信任记录。 |
+| ponytail | 手工 Hooks，位于 `~/.claude/hooks/ponytail/`，不在原生插件安装登记中。 | 手工迁移的 Hooks，位于 `~/.codex/hooks/ponytail-windows/`，不在原生插件安装登记中。 |
+
+本机 ponytail 通过 `SessionStart`、`UserPromptSubmit`、`SubagentStart` 加载规则或跟踪模式。目录名中的 `windows` 是迁移遗留名，本机脚本已适配 macOS；未找到可核实的原件版本号，不把它标为当前上游版本。
+
+新电脑直接安装原生插件，不复制上述手工 Hooks、旧绝对路径或信任记录。如果以后将本机手工安装改为原生插件，需要先核对旧 Hooks 并避免重复加载；本轮没有安装、升级、替换或删除本机插件与 Hooks。
+
+安装命令会从对应 marketplace 解析版本。本仓库未锁定插件依赖，也未执行全新安装验收；迁移后记录实际版本，更新时重新检查 Hook 定义。
+
+### pstack 与架构技能
+
+pstack 按上方必装清单安装，不复制它的全部 Skills。按插件安装方式保留 Hook、Agent 和脚本。
 
 这三份共享技能不在已检查的 pstack 版本中以同名形式提供，但存在能力重叠：
 

@@ -12,6 +12,16 @@
 | `git-story-film` | 本机个人 Skill 的完整目录 | 包含原有引擎、脚本、参考资料和 Raven 示例。 |
 | `cc-clean` | 本机个人 Skill 的完整目录 | 正文标注 `v0.2.2`，包含只读检查工具和报告模板。 |
 
+## 插件安装清单的依据
+
+只记录安装方式，不导入插件源码、缓存或用户配置。核对日期为 2026-10-17。
+
+- [pstack 上游安装说明](https://github.com/michael-denyer/pstack-claude#install)及本机两平台插件 manifest。Claude Code 安装登记为 `0.9.84`，Codex 缓存为 `0.9.67`，两平台配置均启用。
+- [ponytail 上游安装说明](https://github.com/DietrichGebert/ponytail/blob/main/INSTALL.md)、[Claude Code manifest](https://github.com/DietrichGebert/ponytail/blob/main/.claude-plugin/plugin.json)和 [Codex manifest](https://github.com/DietrichGebert/ponytail/blob/main/.codex-plugin/plugin.json)。两平台均有原生插件；本机实际使用手工 Hooks 与配套 Skill，未发现可核实的本地版本号。
+- [OpenAI 插件文档](https://developers.openai.com/plugins/build/plugins)说明安装插件后仍需检查并信任其 Hooks。本机 CLI 的 `--help` 也确认了两平台文档中使用的 marketplace 与插件子命令。
+
+安装记录与原生插件功能的运行验收分别记录。本轮未安装、升级或重新配置插件，未修改本机 Skills 或 Hooks。
+
 ## 许可证
 
 GSAP Skills 上游采用 MIT，五个 GSAP 目录均附带上游 `LICENSE`。这是文档和示例仓库的许可证，不替代 GSAP 运行库本身的使用条款。
