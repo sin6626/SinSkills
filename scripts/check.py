@@ -29,7 +29,7 @@ for path in entries:
     if not re.search(r'^description:\s*\S', header, re.M):
         errors.append(f'{path.relative_to(root)}: missing description')
 
-documents = [*root.glob('README*.md'), root / 'SOURCES.md', *(root / 'plugin').rglob('*.md'), *(root / 'skills').rglob('*.md'), *(root / 'optional').rglob('*.md')]
+documents = [*root.glob('README*.md'), root / 'SOURCES.md', *(root / 'plugin').rglob('*.md'), *(root / 'rules').rglob('*.md'), *(root / 'skills').rglob('*.md'), *(root / 'optional').rglob('*.md')]
 for path in documents:
     text = path.read_text()
     if re.search(r'/Users/[^/\s]+/|/home/[^/\s]+/', text):

@@ -1,6 +1,6 @@
 # SinSkills
 
-本仓库保存可迁移的个人 Skills 与平台插件安装清单。`skills/` 为默认集合，`optional/` 为按需安装集合，插件清单集中在 `plugin/README.md`，每个插件的安装方法和 GitHub Skills 地址分别记录在 `plugin/` 内。
+本仓库保存可迁移的个人 Skills 与平台插件安装清单。`skills/` 为默认集合，`optional/` 为按需安装集合，`rules/` 保存可迁移的全局指令副本，插件清单集中在 `plugin/README.md`，每个插件的安装方法和 GitHub Skills 地址分别记录在 `plugin/` 内。
 
 ## 维护约定
 
@@ -8,7 +8,7 @@
 - GitHub About 与默认 README 使用英文；README 顶部提供 `README.zh-CN.md` 中文入口，双语清单与安装步骤保持一致。
 - 修改仓库副本，不修改本机已安装的 Skills；安装、覆盖或卸载须由用户明确授权。
 - 禁止批量删除文件或目录。删除时只能一次指定一个文件；需要批量删除时交由用户操作。
-- 不收录账号配置、凭据、运行记录、依赖目录或插件缓存。
+- 不收录账号配置、凭据、运行记录、依赖目录或插件缓存。全局指令同步到 `rules/`，发布前将真实业务示例脱敏，保持本机原文件不变。
 - 保留所需脚本、模板、引用文件、许可证和来源信息；使用相对路径，不依赖某台电脑的绝对路径。
 - 默认集合保持精简。平台、专项任务和维护工具放在 `optional/`，pstack 等完整插件单独记录安装来源。
 - 有原生插件时优先按平台安装，不重复收录插件内的 Skills。当前个人必装清单为 pstack 与 ponytail；Hook 信任由用户在目标环境检查确认，不迁移旧绝对路径和信任记录。
@@ -26,5 +26,7 @@
 `plugin/` 已整理 pstack、ponytail 的两平台原生插件安装方法、上游 Skills 替代地址、必装清单与本机状态快照，主 README 只保留入口。本机 pstack 已按插件启用，ponytail 仍为手工 Hooks 加配套 Skill；本轮未迁移安装或修改全局配置。
 
 已按用户授权创建公开仓库 `https://github.com/sin6626/SinSkills`，远程名称为 `origin`，主分支为 `main`。发布前已检查历史文件中的常见凭据模式，未发现匹配项；不收录本机 MCP、账号或 Hook 配置。
+
+`rules/codex/AGENTS.md` 已于 2026-10-18 从本机全局指令同步，保留资源管理等最新要求，仅替换公开示例中的域名、会员 ID 与用户标识；提供双语迁移说明。根目录 `AGENTS.md` 继续管理本项目。
 
 运行 `python3 scripts/check.py` 检查目录与引用；`npm ci` 后运行 `npm test` 做隔离浏览器回归。Vue/Nuxt 组件编译及 Nuxt composable 类型检查已执行，未对全部框架项目做完整运行验收，也未执行视频渲染或真实账号清理。来源与修订见 `SOURCES.md`。

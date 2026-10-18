@@ -2,7 +2,7 @@
 
 English | [简体中文](README.zh-CN.md)
 
-A personal collection of portable agent skills and plugin installation guides. The default skills focus on UI reconstruction and web animation; specialized skills are optional.
+A personal collection of portable agent skills, plugin installation guides, and global instructions. The default skills focus on UI reconstruction and web animation; specialized skills are optional.
 
 For platforms with native plugins, start with the [plugin catalog](plugin/README.md), then install the selected skills from this repository. Avoid installing a second copy of skills already supplied by a plugin.
 
@@ -55,6 +55,10 @@ For film rendering, install `puppeteer-core` in the prepared film project and po
 ## Plugins
 
 The [plugin catalog](plugin/README.md) contains platform installation instructions and upstream GitHub Skills alternatives for [pstack](plugin/pstack.md) and [ponytail](plugin/ponytail.md). Prefer native plugins where available and avoid duplicating their bundled skills.
+
+## Global instructions
+
+The [rules catalog](rules/README.md) contains the latest synced [Codex global instructions](rules/codex/AGENTS.md). Compare them with the target machine's existing instructions before installing. This repository's root `AGENTS.md` remains project-specific.
 
 ## Validation
 

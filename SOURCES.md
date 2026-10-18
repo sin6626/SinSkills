@@ -13,6 +13,10 @@
 | `cc-clean` | 本机个人 Skill 的完整目录 | 正文标注 `v0.2.2`，包含只读检查工具和报告模板。 |
 | `grilling` | 本机 `grilling` 与 [mattpocock/skills 上游](https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336/skills/productivity/grilling) | 明确目标不清楚时的触发条件，保留本机版一次一个问题的方式；当前上游使用多问题轮次，因此不声称正文与该提交完全相同。MIT 许可证取自该固定提交。 |
 
+## 全局指令
+
+[rules/codex/AGENTS.md](rules/codex/AGENTS.md)于 2026-10-18 同步自本机 `~/.codex/AGENTS.md`，包括新增的电脑资源管理要求。保留用户原文，仅将接口示例中的真实域名、会员 ID 和用户标识替换为示例值。本机原文件没有写入，未导入命令审批策略、登录配置或插件 Hooks。迁移路径与优先级根据 [Codex 官方指令说明](https://learn.chatgpt.com/docs/agent-configuration/agents-md)核对。
+
 ## 插件安装清单的依据
 
 清单位于 [plugin/README.md](plugin/README.md)，每项包含平台安装方式及上游 GitHub Skills 地址。不导入插件源码、缓存或用户配置。核对日期为 2026-10-17。

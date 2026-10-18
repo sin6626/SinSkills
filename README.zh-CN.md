@@ -2,7 +2,7 @@
 
 [English](README.md) | 简体中文
 
-保存个人精选 Skills 和插件安装清单，供更换电脑或 Agent 环境时使用。默认 Skills 侧重 UI 还原和网页动画；专项技能按需安装。
+保存个人精选 Skills、插件安装清单和全局指令，供更换电脑或 Agent 环境时使用。默认 Skills 侧重 UI 还原和网页动画；专项技能按需安装。
 
 支持原生插件的平台先按 [plugin/ 插件清单](plugin/README.md)安装插件，再复制本仓库的精选 Skills。插件内已有的 Skills 不再单独复制。
 
@@ -55,6 +55,10 @@ PPT 技能按当前使用约定由环境提供，本仓库不收录。
 ## 插件
 
 必装插件、平台安装方法和 GitHub Skills 替代地址统一放在 [plugin/](plugin/README.md)，当前包括 [pstack](plugin/pstack.md) 和 [ponytail](plugin/ponytail.md)。有原生插件时按平台安装，不重复复制插件自带的 Skills。
+
+## 全局指令
+
+[rules/ 全局指令清单](rules/README.zh-CN.md)保存本机最新同步的 [Codex 全局指令](rules/codex/AGENTS.md)。安装前先与目标电脑已有规则对比。仓库根目录的 `AGENTS.md` 继续作为本项目的维护约定。
 
 ## 校验
 
